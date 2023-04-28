@@ -79,11 +79,11 @@
         app:layout_constraintTop_toTopOf="@+id/button_1" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_mod"
+        android:id="@+id/button_pow"
         android:layout_width="0dp"
         android:layout_height="@dimen/_80dp"
         android:background="@drawable/cal_button"
-        android:text="@string/mod"
+        android:text="@string/pow"
         android:textColor="@color/operation"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_1"
@@ -242,11 +242,12 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/_80dp"
         android:background="@drawable/res_button"
+        android:backgroundTint="@color/orange"
         android:text="@string/equal"
         android:textColor="@color/operation"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_0"
-        app:layout_constraintEnd_toEndOf="@+id/button_mod"
+        app:layout_constraintEnd_toEndOf="@+id/button_pow"
         app:layout_constraintStart_toStartOf="@+id/button_3"
         app:layout_constraintTop_toTopOf="@+id/button_0" />
 

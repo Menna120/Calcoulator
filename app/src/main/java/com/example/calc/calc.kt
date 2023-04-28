@@ -12,15 +12,24 @@ fun calcoulator(infixExp: String): Double {
     // stack to store operators.
     val operatorStack = Stack<Char>()
 
+    var exp:String=infixExp
+
+    if(!exp.last().isDigit())
+        exp=exp.dropLast(1)
+
     // Current token is either an opening brace or an exponent symbol, push it to operator stack
     var idx = 0
-    while (idx < infixExp.length) {
+    while (idx < exp.length) {
         val token = infixExp[idx]
 
         when {
-            token.isDigit() -> {
+            token.isDigit() || (token == '-' && idx + 1 < infixExp.length && infixExp[idx + 1].isDigit()) -> {
                 // Extract the entire number from the input string
                 var numStr = ""
+                if (token == '-') {
+                    numStr += '-'
+                    idx++
+                }
                 while (idx < infixExp.length && (infixExp[idx].isDigit() || infixExp[idx] == '.')) {
                     numStr += infixExp[idx]
                     idx++

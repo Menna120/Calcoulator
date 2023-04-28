@@ -15,7 +15,7 @@
     <string name="div">/</string>
     <string name="mul">*</string>
     <string name="c">C</string>
-    <string name="mod">%</string>
+    <string name="pow">^</string>
     <string name="equal">=</string>
     <string name="dot">.</string>
 </resources>
