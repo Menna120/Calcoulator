@@ -2,20 +2,13 @@ package com.example.calc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.example.calc.databinding.ActivityMainBinding
-import com.example.calculator.operations
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var currenttext:String
-    lateinit var value:String
-    private var currentoperation: operations? = null
-    private var previousoperation: operations? = null
-    private var temp:String=""
-    private lateinit var old:String
+    private lateinit var resulttext:String
     private var result:Double=0.0
     private lateinit var binding: ActivityMainBinding
 
@@ -32,104 +25,60 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonClear.setOnClickListener { cleartext() }
 
-
         binding.buttonEqual.setOnClickListener{
-            prepare(null,it)
-            binding.textViewInput.text=old
-            binding.textViewResult.text="0"
-        }
+            currenttext=result.toString()
+            binding.textViewInput.text=currenttext
+            resulttext="0"
+            binding.textViewResult.text=resulttext
+            }
 
-        binding.buttonMul.setOnClickListener{prepare(operations.Mul,it) }
+        binding.buttonMul.setOnClickListener{it.displayInputText() }
 
-        binding.buttonPlus.setOnClickListener{prepare(operations.Plus,it)}
+        binding.buttonPlus.setOnClickListener{it.displayInputText() }
 
-        binding.buttonMinus.setOnClickListener{prepare(operations.Minus,it)}
+        binding.buttonMinus.setOnClickListener{it.displayInputText() }
 
-        binding.buttonDiv.setOnClickListener{prepare(operations.Div,it)}
+        binding.buttonDiv.setOnClickListener{it.displayInputText() }
 
-        binding.buttonMod.setOnClickListener{ prepare(operations.Mod,it)}
-
-    }
-    private fun prepare(operation:operations?,view: View){
-        previousoperation=currentoperation
-        temp=""
-        old = if(currentoperation==null)
-                    binding.textViewInput.text.toString()
-              else  binding.textViewResult.text.toString()
-        currentoperation= operation
-        view.displaytext()
+        binding.buttonMod.setOnClickListener{it.displayInputText() }
 
     }
-
     private fun value(view: View):String{
         return (view as Button).text.toString()
     }
-    private fun View.displaytext(){
+    private fun View.displayInputText(){
         currenttext=binding.textViewInput.text.toString()+value(this)
         binding.textViewInput.text=currenttext
     }
-
-    private fun calculations(){
-        when(currentoperation){
-            operations.Mul -> {
-                result=old.toDouble()*temp.toDouble()
-                binding.textViewResult.text=result.toString()}
-            operations.Div ->{
-                result=old.toDouble()/temp.toDouble()
-                binding.textViewResult.text=result.toString()}
-            operations.Plus -> {
-                result=old.toDouble()+temp.toDouble()
-                binding.textViewResult.text=result.toString()}
-            operations.Minus -> {
-                result=old.toDouble()-temp.toDouble()
-                binding.textViewResult.text=result.toString()}
-            operations.Mod -> {
-                result=old.toDouble()%temp.toDouble()
-                binding.textViewResult.text=result.toString()}
-            null -> {binding.textViewResult.text= currenttext}
-
-        }
+    private fun displayOutputText() {
+        result =calcoulator(currenttext)
+        resulttext=result.toString()
+        binding.textViewResult.text=resulttext
     }
-
     fun click(view: View) {
-        value=value(view)
-        temp += value
-        view.displaytext()
-        calculations()
+        view.displayInputText()
+        displayOutputText()
+
     }
+    private fun cleartext() {
+        result=0.0
+        currenttext=""
+        resulttext="0"
+        binding.textViewInput.text=currenttext
+        binding.textViewResult.text=resulttext
 
-    fun cleartext() {
-        binding.textViewInput.text=""
-        binding.textViewResult.text="0"
-        temp=""
-        currentoperation=null
     }
-
-    fun returnback() {
-        if (currenttext.length>1) {
-            val x = currenttext.last()
-            currenttext = currenttext.dropLast(1)
-            val y = currenttext.last()
-            Log.d("MainActivity", "returnback: $y")
-            binding.textViewInput.text = currenttext
-
-            if (x.isDigit() && y.isDigit()) {
-                temp = temp.dropLast(1)
-                calculations()
+    private fun returnback() {
+            if(currenttext.length>1) {
+                currenttext = currenttext.dropLast(1)
+                binding.textViewInput.text = currenttext
+                result = if (currenttext != "" && !currenttext.last().isDigit())
+                    calcoulator(currenttext.dropLast(1))
+                else calcoulator(currenttext)
+                binding.textViewResult.text = result.toString()
             }
-            else if (x.isDigit() && !y.isDigit()) {
-                temp = temp.dropLast(1)
-
-            }
-            else if (!x.isDigit()) {
-                temp = currenttext.takeLastWhile { it.isDigit() }
-                Log.d("MainActivity", "returnback: $temp")
-                currentoperation = previousoperation
-                calculations()
-            }
-        }
         else
-            cleartext()
+                cleartext()
 
     }
 }
