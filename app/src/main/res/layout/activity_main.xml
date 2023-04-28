@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_plus"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/plus"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_back"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_minus"
+        app:layout_constraintTop_toTopOf="@+id/button_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_div"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/div"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_mul"
+        app:layout_constraintStart_toStartOf="@+id/button_mul"
+        app:layout_constraintTop_toTopOf="@+id/button_4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_1"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_1"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_4"
+        app:layout_constraintStart_toStartOf="@+id/button_4"
+        app:layout_constraintTop_toBottomOf="@+id/button_4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_2"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_2"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_5"
+        app:layout_constraintStart_toStartOf="@+id/button_5"
+        app:layout_constraintTop_toTopOf="@+id/button_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_3"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_3"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_6"
+        app:layout_constraintStart_toStartOf="@+id/button_6"
+        app:layout_constraintTop_toTopOf="@+id/button_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_mod"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/mod"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_div"
+        app:layout_constraintStart_toStartOf="@+id/button_div"
+        app:layout_constraintTop_toTopOf="@+id/button_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_4"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_4"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_7"
+        app:layout_constraintStart_toStartOf="@+id/button_7"
+        app:layout_constraintTop_toBottomOf="@+id/button_7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_6"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_6"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_9"
+        app:layout_constraintStart_toStartOf="@+id/button_9"
+        app:layout_constraintTop_toTopOf="@+id/button_4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_dot"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/dot"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_2"
+        app:layout_constraintStart_toStartOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@+id/button_0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_minus"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/minus"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_clear"
+        app:layout_constraintTop_toTopOf="@+id/button_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_5"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_5"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_8"
+        app:layout_constraintStart_toStartOf="@+id/button_8"
+        app:layout_constraintTop_toTopOf="@+id/button_4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_0"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_0"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_1"
+        app:layout_constraintStart_toStartOf="@+id/button_1"
+        app:layout_constraintTop_toBottomOf="@+id/button_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_clear"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/c"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView_result"
+        app:layout_constraintTop_toBottomOf="@+id/textView_result" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_7"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_7"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_clear"
+        app:layout_constraintStart_toStartOf="@+id/button_clear"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_9"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_9"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_plus"
+        app:layout_constraintStart_toStartOf="@+id/button_plus"
+        app:layout_constraintTop_toTopOf="@+id/button_7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_8"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/num_button"
+        android:onClick="click"
+        android:text="@string/_8"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_minus"
+        app:layout_constraintStart_toStartOf="@+id/button_minus"
+        app:layout_constraintTop_toTopOf="@+id/button_7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_equal"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/res_button"
+        android:text="@string/equal"
+        android:textColor="@color/operation"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_mod"
+        app:layout_constraintStart_toStartOf="@+id/button_3"
+        app:layout_constraintTop_toTopOf="@+id/button_0" />
+
+    <TextView
+        android:id="@+id/textView_input"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:autoSizePresetSizes="@array/autosize_text_input"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingTop="16dp"
+        android:text=""
+        android:textColor="@color/orange"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_result"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="24dp"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:text="@string/_0"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/result"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView_input"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_back"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:src="@drawable/outline_backspace_24"
+        app:layout_constraintEnd_toEndOf="@+id/textView_result"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_plus"
+        app:layout_constraintTop_toTopOf="@+id/button_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_mul"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:background="@drawable/cal_button"
+        android:text="@string/mul"
+        android:textColor="@color/operation"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_back"
+        app:layout_constraintStart_toStartOf="@+id/button_back"
+        app:layout_constraintTop_toTopOf="@+id/button_7" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
