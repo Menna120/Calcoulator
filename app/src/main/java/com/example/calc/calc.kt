@@ -15,7 +15,7 @@ fun calcoulator(infixExp: String): Double {
     var exp:String=infixExp
 
     if(!exp.last().isDigit())
-        exp=exp.dropLast(1)
+        exp=exp.dropLastWhile { !it.isDigit() }
 
     // Current token is either an opening brace or an exponent symbol, push it to operator stack
     var idx = 0
