@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private fun addCallBacks() {
         binding.buttonBack.setOnClickListener { returnback() }
 
+        binding.buttonBack.setOnLongClickListener{clear()}
+
         binding.buttonClear.setOnClickListener { cleartext() }
 
         binding.buttonEqual.setOnClickListener{
@@ -48,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonPow.setOnClickListener{it.displayInputText()
             operation=true}
-
     }
     private fun updateOperation(){
         if(operation)
@@ -69,16 +70,18 @@ class MainActivity : AppCompatActivity() {
     fun click(view: View) {
         view.displayInputText()
         displayOutputText()
-
     }
-    private fun cleartext() {
-        operation=true
-        result=0.0
+    private fun clear():Boolean{
         currenttext=""
         resulttext="0"
         binding.textViewInput.text=currenttext
         binding.textViewResult.text=resulttext
-
+        return true
+    }
+    private fun cleartext() {
+        operation=true
+        result=0.0
+        clear()
     }
     private fun returnback() {
         operation=false
@@ -93,13 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
         else
             {
-                currenttext=""
-                resulttext="0"
-                binding.textViewInput.text=currenttext
-                binding.textViewResult.text=resulttext
+                clear()
             }
-
     }
 }
-
-
