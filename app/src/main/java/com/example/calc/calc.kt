@@ -2,7 +2,7 @@ package com.example.calc
 
 import java.util.*
 
-fun calcoulator(infixExp: String): Double {
+fun calculator(infixExp: String): Double {
     // find precedence of operators.
     val precedence = mapOf('^' to 4, '*' to 3, '/' to 3, '-' to 2, '+' to 2)
 
